@@ -14,6 +14,8 @@
 		05F5BED724833D0F0013BB1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BED624833D0F0013BB1A /* Assets.xcassets */; };
 		05F5BEDA24833D0F0013BB1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BED924833D0F0013BB1A /* Preview Assets.xcassets */; };
 		05F5BEDD24833D0F0013BB1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BEDB24833D0F0013BB1A /* LaunchScreen.storyboard */; };
+		05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BEE424834DC70013BB1A /* CardModel.swift */; };
+		05F5BEEB248351D60013BB1A /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BEEA248351D60013BB1A /* CardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		05F5BED924833D0F0013BB1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		05F5BEDC24833D0F0013BB1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05F5BEDE24833D0F0013BB1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05F5BEE424834DC70013BB1A /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		05F5BEEA248351D60013BB1A /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 		05F5BECC24833D0B0013BB1A /* Kanban */ = {
 			isa = PBXGroup;
 			children = (
-				05F5BECD24833D0B0013BB1A /* AppDelegate.swift */,
-				05F5BECF24833D0B0013BB1A /* SceneDelegate.swift */,
-				05F5BED424833D0B0013BB1A /* BoardView.swift */,
-				05F5BED624833D0F0013BB1A /* Assets.xcassets */,
+				05F5BEE62483514B0013BB1A /* View */,
+				05F5BEE7248351520013BB1A /* ViewModel */,
+				05F5BEE82483515C0013BB1A /* Model */,
 				05F5BEDB24833D0F0013BB1A /* LaunchScreen.storyboard */,
+				05F5BED624833D0F0013BB1A /* Assets.xcassets */,
+				05F5BECF24833D0B0013BB1A /* SceneDelegate.swift */,
+				05F5BECD24833D0B0013BB1A /* AppDelegate.swift */,
 				05F5BEDE24833D0F0013BB1A /* Info.plist */,
 				05F5BED124833D0B0013BB1A /* Kanban.xcdatamodeld */,
 				05F5BED824833D0F0013BB1A /* Preview Content */,
@@ -76,6 +82,30 @@
 				05F5BED924833D0F0013BB1A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		05F5BEE62483514B0013BB1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05F5BED424833D0B0013BB1A /* BoardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05F5BEE7248351520013BB1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				05F5BEEA248351D60013BB1A /* CardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		05F5BEE82483515C0013BB1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05F5BEE424834DC70013BB1A /* CardModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +181,10 @@
 			files = (
 				05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */,
 				05F5BED024833D0B0013BB1A /* SceneDelegate.swift in Sources */,
+				05F5BEEB248351D60013BB1A /* CardViewModel.swift in Sources */,
 				05F5BED524833D0B0013BB1A /* BoardView.swift in Sources */,
 				05F5BED324833D0B0013BB1A /* Kanban.xcdatamodeld in Sources */,
+				05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
