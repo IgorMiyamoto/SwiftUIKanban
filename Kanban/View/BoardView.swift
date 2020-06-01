@@ -12,6 +12,7 @@ import SwiftUI
 
 struct BoardView: View {
     @ObservedObject var cardViewModel : CardViewModel
+    
     var body: some View {
         
         ScrollView (.horizontal) {
@@ -24,15 +25,15 @@ struct BoardView: View {
                     
                 }
             }
-                .frame(width:1000)
+                .frame(width: boardWidth)
+                .padding()
         }
         
     }
     
     //MARK: 🔢 Magical Numbers
     let horizontalSpacing : CGFloat = 5.00
-    //let cardWidth : CGFloat =
-    //let totalBoardWidth : CGFloat = ()
+    let boardWidth : CGFloat = 1000.00
 }
 
 // MARK: Collumn
