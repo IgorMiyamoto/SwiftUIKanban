@@ -8,20 +8,34 @@
 
 import SwiftUI
 
+// MARK: Board
+
 struct BoardView: View {
     @ObservedObject var cardViewModel : CardViewModel
     var body: some View {
-        ScrollView (.horizontal){
+        
+        ScrollView (.horizontal) {
             GeometryReader { geometry in
-                HStack(spacing: 5){
+                HStack(spacing: self.horizontalSpacing){
+                    
                     Column(colTitle: "To Do", cards: self.cardViewModel.cardsTODO)
                     Column(colTitle: "Doing", cards: self.cardViewModel.cardsDOING)
                     Column(colTitle: "Done", cards: self.cardViewModel.cardsDONE)
+                    
                 }
-            }.frame(width:1000)
+            }
+                .frame(width:1000)
         }
+        
     }
+    
+    //MARK: 🔢 Magical Numbers
+    let horizontalSpacing : CGFloat = 5.00
+    //let cardWidth : CGFloat =
+    //let totalBoardWidth : CGFloat = ()
 }
+
+// MARK: Collumn
 
 struct Column : View{
     var colTitle : String
@@ -29,43 +43,78 @@ struct Column : View{
     
     var body : some View {
         GeometryReader { geometry in
-            ZStack {
-                RoundedRectangle(cornerRadius: 10).stroke()
-                VStack {
-                    Text(self.colTitle).padding()
-                    Divider()
-                    ScrollView {
-                        VStack {
-                            ForEach(self.cards) { card in
-                                CardView(card: card)
-                            }
-                        }
-                    }
-                }
-            }.frame(width:geometry.size.width, height: geometry.size.height)
+            self.body(for: geometry.size)
         }
     }
+    
+    func body (for size : CGSize) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: columnCornerRadius).stroke()
+            VStack {
+                Text(self.colTitle).padding()
+                Divider()
+                setOfCards()
+            }
+        }
+            .frame(width:size.width, height: size.height)
+    }
+    
+    func setOfCards () -> some View {
+        ScrollView {
+            VStack {
+                ForEach(self.cards) { card in
+                    CardView(card: card)
+                }
+            }
+        }
+    }
+    
+    //MARK: 🔢  Magical Numbers
+    
+    let columnCornerRadius : CGFloat = 10.00
+    
 }
 
-
+// MARK: Card
 
 struct CardView: View{
     let card: CardModel.Card
     
     var body : some View {
-        return ZStack(alignment: .leading){
+        ZStack(alignment: .leading) {
             GeometryReader { geometry in
-                RoundedRectangle(cornerRadius: 10).stroke()
-                VStack {
-                    Text(self.card.title).font(Font.system(size: min(geometry.size.height,geometry.size.width)/9)).bold()
-                    Divider()
-                    Text(self.card.desc)
-                }.padding()
+                self.body(for: geometry.size)
             }
         }
-        .frame(minHeight:100,maxHeight: 180)
-        .padding()
+            .frame(minHeight: cardMaxSize, maxHeight: cardMinSize)
+            .padding()
     }
+    
+    func body (for size : CGSize) -> some View {
+        Group{
+            RoundedRectangle(cornerRadius: cardCornerRadius)
+                .stroke()
+            VStack {
+                Text(self.card.title)
+                    .font(Font.system(size : cardFontSize(for: size)))
+                    .bold()
+                Divider()
+                Text(self.card.desc)
+            }
+                .padding()
+        }
+    }
+    
+    //MARK: 🔢 Magical numbers
+    let cardMinSize : CGFloat = 180.00
+    let cardMaxSize : CGFloat = 100.00
+    let cardCornerRadius : CGFloat = 10.00
+    let fontScale : CGFloat = 0.11
+    
+    func cardFontSize (for size : CGSize) -> CGFloat {
+        min(size.width, size.height) * fontScale
+    }
+    
 }
 
 
