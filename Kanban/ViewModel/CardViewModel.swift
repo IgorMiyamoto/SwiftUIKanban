@@ -36,6 +36,15 @@ class CardViewModel : ObservableObject {
         cardModel.delete(card : card)
     }
     
+    func addOrUpdateCard(card : CardModel.Card) {
+        if card.task == nil{
+            cardModel.add(card: card)
+        }
+        else {
+            cardModel.update(card: card)
+        }
+    }
+    
 //    func showCard(card: CardModel.Card)
 //    {
 //        cardModel.show(card: card)
