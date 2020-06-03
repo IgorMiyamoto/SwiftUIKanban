@@ -13,25 +13,49 @@ import SwiftUI
 struct BoardView: View {
     @ObservedObject var cardViewModel : CardViewModel
     
+    @State private var showingAddView = false
+    
     var body: some View {
-        ScrollView (.horizontal) {
-            GeometryReader { geometry in
-                HStack(spacing: self.horizontalSpacing){
-                    
-                    Column(colTitle: "To Do", cards: self.cardViewModel.cardsTODO,cardViewModel: self.cardViewModel)
-                    Column(colTitle: "Doing", cards: self.cardViewModel.cardsDOING,cardViewModel: self.cardViewModel)
-                    Column(colTitle: "Done", cards: self.cardViewModel.cardsDONE,cardViewModel: self.cardViewModel)
-                    
+        NavigationView{
+            VStack {
+                HStack {
+                    Text("Sem a Testa")
+                    Spacer()
+                    Button(action:{ self.showingAddView.toggle()}) {
+                        Image(systemName: "plus")
+                        
+                    }.sheet(isPresented: $showingAddView, content: {Text("aaaasasassasa")})
+                }.padding()
+                
+                ScrollView(.horizontal) {
+                    GeometryReader { geometry in
+                        HStack(spacing: self.horizontalSpacing){
+                            
+                            Column(colTitle: "To Do", cards: self.cardViewModel.cardsTODO,cardViewModel: self.cardViewModel)
+                            Column(colTitle: "Doing", cards: self.cardViewModel.cardsDOING,cardViewModel: self.cardViewModel)
+                            Column(colTitle: "Done", cards: self.cardViewModel.cardsDONE,cardViewModel: self.cardViewModel)
+                            
+                        }
+                    }
+                        .frame(width: boardWidth)
+                        .padding()
                 }
             }
-                .frame(width: boardWidth)
-                .padding()
         }
+       
     }
     
     //MARK: 🔢 Magical Numbers
     let horizontalSpacing : CGFloat = 5.00
     let boardWidth : CGFloat = 1000.00
+}
+
+extension UINavigationController {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationBar.isHidden = true
+    }
 }
 
 // MARK: Collumn
@@ -71,19 +95,25 @@ struct Column : View{
                         VStack{
                             Button(action: {}) {
                                 HStack {
-                                    Text("Mover")
-                                    Image(systemName: "star")
+                                    Text("Open")
+                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
                                 }
                             }
                             Button(action: {}) {
                                 HStack {
-                                    Text("Editar")
-                                    Image(systemName: "star")
+                                    Text("Move")
+                                    Image(systemName: "arrow.right.arrow.left")
                                 }
                             }
                             Button(action: {}) {
                                 HStack {
-                                    Text("Remover")
+                                    Text("Edit")
+                                    Image(systemName: "pencil")
+                                }
+                            }
+                            Button(action: {}) {
+                                HStack {
+                                    Text("Remove")
                                     Image(systemName: "trash")
                                 }
                             }.foregroundColor(Color.red)

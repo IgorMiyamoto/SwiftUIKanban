@@ -12,14 +12,6 @@ struct CardView: View{
     let card: CardModel.Card
     
     var body : some View {
-//        var minHeight: CGFloat = cardMinSize
-//        var maxHeight: CGFloat = cardMaxSize
-//        print(card)
-//        if card.isShowing {
-//           minHeight *= 2
-//          maxHeight *= 2
-//        }
-        
         return ZStack(alignment: .leading) {
             GeometryReader { geometry in
                 self.body(for: geometry.size)
