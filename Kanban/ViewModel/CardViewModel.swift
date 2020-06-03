@@ -31,4 +31,8 @@ class CardViewModel : ObservableObject {
     }
     //MARK: Intents
     
+//    func showCard(card: CardModel.Card)
+//    {
+//        cardModel.show(card: card)
+//    }
 }
