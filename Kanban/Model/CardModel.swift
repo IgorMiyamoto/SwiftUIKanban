@@ -25,12 +25,12 @@ struct CardModel {
     //MARK: Init
     
     init() {
-        addTestData()
+        //addTestData()
         Fetch()
-        
+        //SaveData()
     }
     
-    //MARK: Test Data Functions
+    //MARK: Add Test Data
     
     func addTestData() {
         guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: coreDataStack.managedObjectContext) else {
@@ -38,20 +38,22 @@ struct CardModel {
         }
         
         let task = Task(entity: entity, insertInto: coreDataStack.managedObjectContext)
-        task.setValue("Aprender um pouco de SwiftUI", forKey:"title")
-        task.setValue("Ver os vídeos de Stanford sobre o assunto parece ser um bom começo", forKey: "descrip")
-        task.setValue(EnumStatus.TODO.rawValue, forKey: "status")
+        task.title = "Aprender um pouco de SwiftUI"
+        task.descrip = "Ver os vídeos de Stanford sobre o assunto parece ser um bom começo"
+        task.status = Int16(EnumStatus.TODO.rawValue)
         
         let task2 = Task(entity: entity, insertInto: coreDataStack.managedObjectContext)
-        task2.setValue("Aprender um pouco de CoreData", forKey:"title")
-        task2.setValue("Ver os vídeos do raywenderlich sobre o assunto parece ser um bom começo", forKey: "descrip")
-        task2.setValue(EnumStatus.TODO.rawValue, forKey: "status")
+        task2.title = "Aprender um pouco de CoreData"
+        task2.descrip = "Ver os vídeos do raywenderlich sobre o assunto parece ser um bom começo"
+        task2.status = Int16(EnumStatus.TODO.rawValue)
         
         let task3 = Task(entity: entity, insertInto: coreDataStack.managedObjectContext)
-        task3.setValue("Aprender um pouco mais de Swift", forKey:"title")
-        task3.setValue("Fazer um App de Kanban pode ser interessante", forKey: "descrip")
-        task3.setValue(EnumStatus.DOING.rawValue, forKey: "status")
+        task3.title = "Aprender um pouco mais de Swift"
+        task3.descrip = "Fazer um App de Kanban pode ser interessante"
+        task3.status = Int16(EnumStatus.DOING.rawValue)
     }
+    
+    //MARK: Fetch
     
     mutating func Fetch () {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
@@ -59,13 +61,15 @@ struct CardModel {
         do{
             if let results = try coreDataStack.managedObjectContext.fetch(fetchRequest) as? [Task] {
                 
+                cards = [Card]()
+                
                 for result in results {
                     let title = result.title
                     let descrip = result.descrip
                     let status = result.status
                     
                     //print("Tarefa: \(title) Descrição: \(descrip ?? "") Status: \(status)")
-                    let c = Card(title: title, desc: descrip ?? "", status: EnumStatus(rawValue: Int(status))!)
+                    let c = Card(title: title, desc: descrip ?? "", status: EnumStatus(rawValue: Int(status))!, task: result)
                     cards.append(c)
                     
                 }
@@ -76,19 +80,51 @@ struct CardModel {
         }
     }
     
+    //MARK: Save
+    
+    mutating func SaveData() {
+        do{
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Error saving")
+        }
+        
+        Fetch()
+    }
+    
+    //MARK: Add
+    
     func addCard(title: String, desc: String, img: String?, status: EnumStatus){
          
     }
     
-    //func removeCard(card: Card){}
-    //func editCard(card: Card, title: String, desc: String, img: String?, status: EnumStatus){}
+    //MARK: Delete
+    
+    mutating func delete(card: Card){
+        let deletingIndex = cards.firstIndexOf(of: card)!
+        
+        coreDataStack.managedObjectContext.delete(cards[deletingIndex].task)
+        
+        SaveData()
+    }
+    
+    //MARK: Update
+    
+    func editCard(card: Card){
+    }
+    
+    //MARK: Card Struct
     
     struct Card : Identifiable {
         var id = UUID()
+        
         var title : String
         var desc : String
         //var img : String?
         // var isShowing: Bool = false
         var status : EnumStatus
+        
+        private(set) var task : Task
     }
 }

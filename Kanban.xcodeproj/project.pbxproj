@@ -20,6 +20,7 @@
 		B605023B2486E100009F7CE3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605023A2486E100009F7CE3 /* CoreDataStack.swift */; };
 		B605024024881AC8009F7CE3 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605023E24881AC8009F7CE3 /* Task+CoreDataClass.swift */; };
 		B605024124881AC8009F7CE3 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605023F24881AC8009F7CE3 /* Task+CoreDataProperties.swift */; };
+		B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024324883120009F7CE3 /* Array+FirstIndexOf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B605023A2486E100009F7CE3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B605023E24881AC8009F7CE3 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		B605023F24881AC8009F7CE3 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B605024324883120009F7CE3 /* Array+FirstIndexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+FirstIndexOf.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		05F5BECC24833D0B0013BB1A /* Kanban */ = {
 			isa = PBXGroup;
 			children = (
+				B605024224883102009F7CE3 /* Arrays Extentios */,
 				B60502372485FC80009F7CE3 /* CoreData */,
 				05F5BEE62483514B0013BB1A /* View */,
 				05F5BEE7248351520013BB1A /* ViewModel */,
@@ -126,6 +129,14 @@
 				B605023A2486E100009F7CE3 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B605024224883102009F7CE3 /* Arrays Extentios */ = {
+			isa = PBXGroup;
+			children = (
+				B605024324883120009F7CE3 /* Array+FirstIndexOf.swift */,
+			);
+			path = "Arrays Extentios";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				05F5BED324833D0B0013BB1A /* Kanban.xcdatamodeld in Sources */,
 				B605024124881AC8009F7CE3 /* Task+CoreDataProperties.swift in Sources */,
 				05E3A32A2486E5E60083F84F /* CardView.swift in Sources */,
+				B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */,
 				05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

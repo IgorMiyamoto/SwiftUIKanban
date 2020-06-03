@@ -81,7 +81,7 @@ struct Column : View{
                                     Image(systemName: "star")
                                 }
                             }
-                            Button(action: {}) {
+                            Button(action: {self.cardViewModel.remove(card: card)}) {
                                 HStack {
                                     Text("Remover")
                                     Image(systemName: "trash")

@@ -32,8 +32,8 @@ class CardViewModel : ObservableObject {
     
     //MARK: Intents
     
-    func TestingValues(){
-        cardModel.addTestData()
+    func remove(card : CardModel.Card){
+        cardModel.delete(card : card)
     }
     
 //    func showCard(card: CardModel.Card)
