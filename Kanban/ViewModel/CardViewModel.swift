@@ -31,7 +31,14 @@ class CardViewModel : ObservableObject {
     }
     
     //MARK: Intents
+    
     func TestingValues(){
         cardModel.addTestData()
     }
+    
+//    func showCard(card: CardModel.Card)
+//    {
+//        cardModel.show(card: card)
+//    }
+
 }

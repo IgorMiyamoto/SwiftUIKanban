@@ -18,9 +18,9 @@ struct BoardView: View {
             GeometryReader { geometry in
                 HStack(spacing: self.horizontalSpacing){
                     
-                    Column(colTitle: "To Do", cards: self.cardViewModel.cardsTODO)
-                    Column(colTitle: "Doing", cards: self.cardViewModel.cardsDOING)
-                    Column(colTitle: "Done", cards: self.cardViewModel.cardsDONE)
+                    Column(colTitle: "To Do", cards: self.cardViewModel.cardsTODO,cardViewModel: self.cardViewModel)
+                    Column(colTitle: "Doing", cards: self.cardViewModel.cardsDOING,cardViewModel: self.cardViewModel)
+                    Column(colTitle: "Done", cards: self.cardViewModel.cardsDONE,cardViewModel: self.cardViewModel)
                     
                 }
             }
@@ -39,6 +39,7 @@ struct BoardView: View {
 struct Column : View{
     var colTitle : String
     var cards : [CardModel.Card]
+    var cardViewModel : CardViewModel
     
     var body : some View {
         GeometryReader { geometry in
@@ -59,10 +60,35 @@ struct Column : View{
     }
     
     func setOfCards () -> some View {
-        ScrollView {
+        return ScrollView {
             VStack {
                 ForEach(self.cards) { card in
                     CardView(card: card)
+//                        .onTapGesture {
+//                            self.cardViewModel.showCard(card: card)
+//                    }
+                    .contextMenu {
+                        VStack{
+                            Button(action: {}) {
+                                HStack {
+                                    Text("Mover")
+                                    Image(systemName: "star")
+                                }
+                            }
+                            Button(action: {}) {
+                                HStack {
+                                    Text("Editar")
+                                    Image(systemName: "star")
+                                }
+                            }
+                            Button(action: {}) {
+                                HStack {
+                                    Text("Remover")
+                                    Image(systemName: "trash")
+                                }
+                            }.foregroundColor(Color.red)
+                        }
+                    }
                 }
             }
         }
@@ -71,48 +97,6 @@ struct Column : View{
     //MARK: 🔢  Magical Numbers
     
     let columnCornerRadius : CGFloat = 10.00
-    
-}
-
-// MARK: Card
-
-struct CardView: View{
-    let card: CardModel.Card
-    
-    var body : some View {
-        ZStack(alignment: .leading) {
-            GeometryReader { geometry in
-                self.body(for: geometry.size)
-            }
-        }
-            .frame(minHeight: cardMaxSize, maxHeight: cardMinSize)
-            .padding()
-    }
-    
-    func body (for size : CGSize) -> some View {
-        Group{
-            RoundedRectangle(cornerRadius: cardCornerRadius)
-                .stroke()
-            VStack {
-                Text(self.card.title)
-                    .font(Font.system(size : cardFontSize(for: size)))
-                    .bold()
-                Divider()
-                Text(self.card.desc)
-            }
-                .padding()
-        }
-    }
-    
-    //MARK: 🔢 Magical numbers
-    let cardMinSize : CGFloat = 180.00
-    let cardMaxSize : CGFloat = 100.00
-    let cardCornerRadius : CGFloat = 10.00
-    let fontScale : CGFloat = 0.11
-    
-    func cardFontSize (for size : CGSize) -> CGFloat {
-        min(size.width, size.height) * fontScale
-    }
     
 }
 

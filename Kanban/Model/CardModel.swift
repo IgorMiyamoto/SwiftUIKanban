@@ -28,7 +28,6 @@ struct CardModel {
         addTestData()
         Fetch()
         
-        
     }
     
     //MARK: Test Data Functions
@@ -84,13 +83,12 @@ struct CardModel {
     //func removeCard(card: Card){}
     //func editCard(card: Card, title: String, desc: String, img: String?, status: EnumStatus){}
     
-    
-    
     struct Card : Identifiable {
         var id = UUID()
         var title : String
         var desc : String
         //var img : String?
+        // var isShowing: Bool = false
         var status : EnumStatus
     }
 }
