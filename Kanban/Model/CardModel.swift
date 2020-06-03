@@ -95,8 +95,17 @@ struct CardModel {
     
     //MARK: Add
     
-    func addCard(title: String, desc: String, img: String?, status: EnumStatus){
-         
+    mutating func add(card : Card){
+        guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: coreDataStack.managedObjectContext) else {
+            fatalError("Could not find entity description!")
+        }
+        
+        let task = Task(entity: entity, insertInto: coreDataStack.managedObjectContext)
+        task.title = card.title
+        task.descrip = card.desc
+        task.status = Int16(card.status.rawValue)
+        
+        SaveData()
     }
     
     //MARK: Delete
@@ -104,20 +113,27 @@ struct CardModel {
     mutating func delete(card: Card){
         let deletingIndex = cards.firstIndexOf(of: card)!
         
-        coreDataStack.managedObjectContext.delete(cards[deletingIndex].task)
+        coreDataStack.managedObjectContext.delete(cards[deletingIndex].task!)
         
         SaveData()
     }
     
     //MARK: Update
     
-    func editCard(card: Card){
+    mutating func update(card: Card){
+        
+        let changingIndex = cards.firstIndexOf(of: card)!
+        cards[changingIndex].task!.title = card.title
+        cards[changingIndex].task!.descrip = card.desc
+        cards[changingIndex].task!.status = Int16(card.status.rawValue)
+        
+        SaveData()
     }
     
     //MARK: Card Struct
     
     struct Card : Identifiable {
-        var id = UUID()
+        private(set) var id = UUID()
         
         var title : String
         var desc : String
@@ -125,6 +141,6 @@ struct CardModel {
         // var isShowing: Bool = false
         var status : EnumStatus
         
-        private(set) var task : Task
+        private(set) var task : Task?
     }
 }
