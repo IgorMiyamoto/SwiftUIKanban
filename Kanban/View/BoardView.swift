@@ -14,7 +14,6 @@ struct BoardView: View {
     @ObservedObject var cardViewModel : CardViewModel
     
     var body: some View {
-        
         ScrollView (.horizontal) {
             GeometryReader { geometry in
                 HStack(spacing: self.horizontalSpacing){
@@ -28,7 +27,6 @@ struct BoardView: View {
                 .frame(width: boardWidth)
                 .padding()
         }
-        
     }
     
     //MARK: 🔢 Magical Numbers

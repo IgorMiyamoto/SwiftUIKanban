@@ -29,6 +29,9 @@ class CardViewModel : ObservableObject {
     var cardsDONE : Array<CardModel.Card>{
         cardModel.cards.filter { $0.status == EnumStatus.DONE }
     }
-    //MARK: Intents
     
+    //MARK: Intents
+    func TestingValues(){
+        cardModel.addTestData()
+    }
 }
