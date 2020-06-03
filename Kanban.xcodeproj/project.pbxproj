@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05666B7924883EA100BB9C5E /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05666B7824883EA100BB9C5E /* AddView.swift */; };
 		05E3A32A2486E5E60083F84F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E3A3292486E5E60083F84F /* CardView.swift */; };
 		05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECD24833D0B0013BB1A /* AppDelegate.swift */; };
 		05F5BED024833D0B0013BB1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECF24833D0B0013BB1A /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05666B7824883EA100BB9C5E /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		05E3A3292486E5E60083F84F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		05F5BECA24833D0B0013BB1A /* Kanban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F5BECD24833D0B0013BB1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				05F5BED424833D0B0013BB1A /* BoardView.swift */,
 				05E3A3292486E5E60083F84F /* CardView.swift */,
+				05666B7824883EA100BB9C5E /* AddView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				05F5BED524833D0B0013BB1A /* BoardView.swift in Sources */,
 				05F5BED324833D0B0013BB1A /* Kanban.xcdatamodeld in Sources */,
 				B605024124881AC8009F7CE3 /* Task+CoreDataProperties.swift in Sources */,
+				05666B7924883EA100BB9C5E /* AddView.swift in Sources */,
 				05E3A32A2486E5E60083F84F /* CardView.swift in Sources */,
 				B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */,
 				05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */,

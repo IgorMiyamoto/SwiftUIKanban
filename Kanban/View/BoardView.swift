@@ -24,7 +24,10 @@ struct BoardView: View {
                     Button(action:{ self.showingAddView.toggle()}) {
                         Image(systemName: "plus")
                         
-                    }.sheet(isPresented: $showingAddView, content: {Text("aaaasasassasa")})
+                    }.sheet(isPresented: $showingAddView, content: {
+                        AddView("Add")
+                        
+                    })
                 }.padding()
                 
                 ScrollView(.horizontal) {
@@ -41,6 +44,8 @@ struct BoardView: View {
                         .padding()
                 }
             }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         }
        
     }
@@ -50,17 +55,18 @@ struct BoardView: View {
     let boardWidth : CGFloat = 1000.00
 }
 
-extension UINavigationController {
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationBar.isHidden = true
-    }
-}
+//extension UINavigationController {
+//    override open func viewDidLoad() {
+//        super.viewDidLoad()
+//        navigationBar.isHidden = true
+//    }
+//}
 
 // MARK: Collumn
 
 struct Column : View{
+    @State private var showingAddView = false
+    
     var colTitle : String
     var cards : [CardModel.Card]
     var cardViewModel : CardViewModel
@@ -105,12 +111,14 @@ struct Column : View{
                                     Image(systemName: "arrow.right.arrow.left")
                                 }
                             }
-                            Button(action: {}) {
+                            Button(action: {self.showingAddView.toggle()}) {
                                 HStack {
                                     Text("Edit")
                                     Image(systemName: "pencil")
                                 }
-                            }
+                            }.sheet(isPresented: self.$showingAddView, content: {
+                                AddView("Edit",card: card)
+                            })
                             Button(action: {self.cardViewModel.remove(card: card)}) {
                                 HStack {
                                     Text("Remove")

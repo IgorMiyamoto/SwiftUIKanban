@@ -12,7 +12,7 @@ import CoreData
 //MARK: Status Enum
 
 enum EnumStatus : Int{
-    case TODO = 1
+    case TODO = 0
     case DOING
     case DONE
 }
