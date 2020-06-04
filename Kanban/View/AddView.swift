@@ -10,8 +10,9 @@ import SwiftUI
 
 struct AddView: View {
     var task : String
+    var card : CardModel.Card?
     
-    var function : (CardModel.Card)->Void
+    var function : ((CardModel.Card)->Void)?
     
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
     @State private var txtTitle : String = ""
@@ -21,7 +22,7 @@ struct AddView: View {
     let status = ["To Do","Doing","Done"]
     var body: some View {
         
-        return NavigationView {
+         NavigationView {
             Form{
                 TextField("Title", text: $txtTitle)
                 TextField("Content", text: $txtContent).frame(height: 150).lineLimit(10)
@@ -38,24 +39,43 @@ struct AddView: View {
                     self.presentationMode.wrappedValue.dismiss()
                     }){Text("Cancel")} ,
                 trailing: Button(action: {
-                    
+                    self.addOrEdit()
+                    self.presentationMode.wrappedValue.dismiss()
                 }){Text("Save")} )
         }
    
     }
     
     init(_ task: String, action: @escaping (CardModel.Card) -> Void)
+     {
+         self.task = task
+         self.function = action
+     }
+     
+     init(_ task: String, card: CardModel.Card, action: @escaping (CardModel.Card) -> Void){
+         self.task = task
+         self.card = card
+         self._txtTitle = State(wrappedValue: card.title)
+         self._txtContent = State(wrappedValue: card.desc)
+         self._pkrStatus = State(wrappedValue: card.status.rawValue)
+         self.function = action
+     }
+
+    func addOrEdit()
     {
-        self.task = task
-        self.function = action
+        if var ca : CardModel.Card = self.card {
+            ca.title = txtTitle
+            ca.desc = txtContent
+            ca.status = EnumStatus(rawValue: pkrStatus)!
+            function!(ca)
+        } else {
+            var c : CardModel.Card = CardModel.Card(title: txtTitle, desc: txtContent, status: EnumStatus(rawValue: pkrStatus)!)
+            function!(c)
+        }
+        
+        
     }
     
-    init(_ task: String, card: CardModel.Card, action: @escaping (CardModel.Card) -> Void){
-        self.task = task
-        self._txtTitle = State(wrappedValue: card.title)
-        self._txtContent = State(wrappedValue: card.desc)
-        self._pkrStatus = State(wrappedValue: card.status.rawValue)
-        self.function = action
-    }
+ 
 
 }

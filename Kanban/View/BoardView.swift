@@ -25,7 +25,7 @@ struct BoardView: View {
                         Image(systemName: "plus")
                         
                     }.sheet(isPresented: $showingAddView, content: {
-                        AddView("Add")
+                        AddView("Add", action: self.cardViewModel.addOrUpdateCard)
                         
                     })
                 }.padding()
@@ -94,9 +94,6 @@ struct Column : View{
             VStack {
                 ForEach(self.cards) { card in
                     CardView(card: card)
-//                        .onTapGesture {
-//                            self.cardViewModel.showCard(card: card)
-//                    }
                     .contextMenu {
                         VStack{
                             Button(action: {}) {
@@ -117,7 +114,7 @@ struct Column : View{
                                     Image(systemName: "pencil")
                                 }
                             }.sheet(isPresented: self.$showingAddView, content: {
-                                AddView("Edit",card: card)
+                                AddView("Edit",card: card, action: self.cardViewModel.addOrUpdateCard)
                             })
                             Button(action: {self.cardViewModel.remove(card: card)}) {
                                 HStack {

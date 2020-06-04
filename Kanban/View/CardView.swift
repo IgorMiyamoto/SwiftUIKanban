@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CardView: View{
+    
     let card: CardModel.Card
     
     var body : some View {
@@ -49,7 +50,13 @@ struct CardView: View{
     
 }
 
-
+//extension CardView {
+//    @State 
+//    func createMenu()
+//    {
+//        self.contextMenu(<#T##contextMenu: ContextMenu<View>?##ContextMenu<View>?#>)
+//    }
+//}
 //@State private var offset = CGSize.zero
 //
 //// whether it is currently being dragged or not
