@@ -28,7 +28,7 @@ struct CardView: View{
                 .stroke()
             VStack {
                 Text(self.card.title)
-                    .font(Font.system(size : cardFontSize(for: size)))
+                    .font(Font.system(.body))
                     .bold()
                 Divider()
                 Text(self.card.desc)
