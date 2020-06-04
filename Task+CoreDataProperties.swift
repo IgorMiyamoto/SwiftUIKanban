@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  Kanban
 //
-//  Created by Lucas Claro on 03/06/20.
+//  Created by Lucas Claro on 04/06/20.
 //  Copyright © 2020 Igor Miyamoto. All rights reserved.
 //
 //
@@ -20,5 +20,6 @@ extension Task {
     @NSManaged public var descrip: String?
     @NSManaged public var status: Int16
     @NSManaged public var title: String
+    @NSManaged public var isInside: BoardData
 
 }

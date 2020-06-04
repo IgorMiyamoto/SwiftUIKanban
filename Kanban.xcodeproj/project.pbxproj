@@ -12,7 +12,6 @@
 		05E3A32A2486E5E60083F84F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E3A3292486E5E60083F84F /* CardView.swift */; };
 		05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECD24833D0B0013BB1A /* AppDelegate.swift */; };
 		05F5BED024833D0B0013BB1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECF24833D0B0013BB1A /* SceneDelegate.swift */; };
-		05F5BED324833D0B0013BB1A /* Kanban.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BED124833D0B0013BB1A /* Kanban.xcdatamodeld */; };
 		05F5BED524833D0B0013BB1A /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BED424833D0B0013BB1A /* BoardView.swift */; };
 		05F5BED724833D0F0013BB1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BED624833D0F0013BB1A /* Assets.xcassets */; };
 		05F5BEDA24833D0F0013BB1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BED924833D0F0013BB1A /* Preview Assets.xcassets */; };
@@ -23,6 +22,12 @@
 		B605024024881AC8009F7CE3 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605023E24881AC8009F7CE3 /* Task+CoreDataClass.swift */; };
 		B605024124881AC8009F7CE3 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605023F24881AC8009F7CE3 /* Task+CoreDataProperties.swift */; };
 		B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024324883120009F7CE3 /* Array+FirstIndexOf.swift */; };
+		B605024924897389009F7CE3 /* Kanban.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 05F5BED124833D0B0013BB1A /* Kanban.xcdatamodeld */; };
+		B605024B24897512009F7CE3 /* BoardSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024A24897512009F7CE3 /* BoardSelectView.swift */; };
+		B605024D248976DC009F7CE3 /* BoardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024C248976DC009F7CE3 /* BoardsModel.swift */; };
+		B60502502489793A009F7CE3 /* BoardData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024E2489793A009F7CE3 /* BoardData+CoreDataClass.swift */; };
+		B60502512489793A009F7CE3 /* BoardData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605024F2489793A009F7CE3 /* BoardData+CoreDataProperties.swift */; };
+		B605025324897BA8009F7CE3 /* BoardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605025224897BA8009F7CE3 /* BoardsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		B605023E24881AC8009F7CE3 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		B605023F24881AC8009F7CE3 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		B605024324883120009F7CE3 /* Array+FirstIndexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+FirstIndexOf.swift"; sourceTree = "<group>"; };
+		B605024A24897512009F7CE3 /* BoardSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSelectView.swift; sourceTree = "<group>"; };
+		B605024C248976DC009F7CE3 /* BoardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsModel.swift; sourceTree = "<group>"; };
+		B605024E2489793A009F7CE3 /* BoardData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B605024F2489793A009F7CE3 /* BoardData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B605025224897BA8009F7CE3 /* BoardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,7 @@
 				05E3A3292486E5E60083F84F /* CardView.swift */,
 				05666B7824883EA100BB9C5E /* AddView.swift */,
 				05666B7D248874FE00BB9C5E /* CardViewModifier.swift */,
+				B605024A24897512009F7CE3 /* BoardSelectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				05F5BEEA248351D60013BB1A /* CardViewModel.swift */,
+				B605025224897BA8009F7CE3 /* BoardsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				05F5BEE424834DC70013BB1A /* CardModel.swift */,
+				B605024C248976DC009F7CE3 /* BoardsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +143,8 @@
 		B60502372485FC80009F7CE3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B605024E2489793A009F7CE3 /* BoardData+CoreDataClass.swift */,
+				B605024F2489793A009F7CE3 /* BoardData+CoreDataProperties.swift */,
 				B605023E24881AC8009F7CE3 /* Task+CoreDataClass.swift */,
 				B605023F24881AC8009F7CE3 /* Task+CoreDataProperties.swift */,
 				B605023A2486E100009F7CE3 /* CoreDataStack.swift */,
@@ -203,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B605024924897389009F7CE3 /* Kanban.xcdatamodeld in Resources */,
 				05F5BEDD24833D0F0013BB1A /* LaunchScreen.storyboard in Resources */,
 				05F5BEDA24833D0F0013BB1A /* Preview Assets.xcassets in Resources */,
 				05F5BED724833D0F0013BB1A /* Assets.xcassets in Resources */,
@@ -218,14 +234,18 @@
 			files = (
 				B605023B2486E100009F7CE3 /* CoreDataStack.swift in Sources */,
 				B605024024881AC8009F7CE3 /* Task+CoreDataClass.swift in Sources */,
+				B60502512489793A009F7CE3 /* BoardData+CoreDataProperties.swift in Sources */,
 				05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */,
+				B605025324897BA8009F7CE3 /* BoardsViewModel.swift in Sources */,
 				05666B7E248874FE00BB9C5E /* CardViewModifier.swift in Sources */,
 				05F5BED024833D0B0013BB1A /* SceneDelegate.swift in Sources */,
 				05F5BEEB248351D60013BB1A /* CardViewModel.swift in Sources */,
 				05F5BED524833D0B0013BB1A /* BoardView.swift in Sources */,
-				05F5BED324833D0B0013BB1A /* Kanban.xcdatamodeld in Sources */,
+				B605024D248976DC009F7CE3 /* BoardsModel.swift in Sources */,
 				B605024124881AC8009F7CE3 /* Task+CoreDataProperties.swift in Sources */,
+				B605024B24897512009F7CE3 /* BoardSelectView.swift in Sources */,
 				05666B7924883EA100BB9C5E /* AddView.swift in Sources */,
+				B60502502489793A009F7CE3 /* BoardData+CoreDataClass.swift in Sources */,
 				05E3A32A2486E5E60083F84F /* CardView.swift in Sources */,
 				B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */,
 				05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */,
