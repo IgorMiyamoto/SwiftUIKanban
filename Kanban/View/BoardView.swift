@@ -93,7 +93,9 @@ struct Column : View{
         return ScrollView {
             VStack {
                 ForEach(self.cards) { card in
-                    CardView(card: card).createContextMenu(card: card, action: self.cardViewModel.addOrUpdateCard, destructiveAction: self.cardViewModel.remove)
+                    CardView(card: card)
+                        .createContextMenu(card: card, action: self.cardViewModel.addOrUpdateCard, destructiveAction: self.cardViewModel.remove)
+                    //.onTap(card: card)
                 }
             }
         }
@@ -106,3 +108,9 @@ struct Column : View{
 }
 
 
+//
+//struct BoardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BoardView(cardViewModel: CardViewModel())
+//    }
+//}

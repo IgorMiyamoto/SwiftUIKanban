@@ -69,8 +69,9 @@ struct AddView: View {
             ca.status = EnumStatus(rawValue: pkrStatus)!
             function!(ca)
         } else {
-            let c : CardModel.Card = CardModel.Card(title: txtTitle, desc: txtContent, status: EnumStatus(rawValue: pkrStatus)!)
-            function!(c)
+            
+            function!(CardModel.Card(title: txtTitle, desc: txtContent, status: EnumStatus(rawValue: pkrStatus)!))
+
         }
         
         

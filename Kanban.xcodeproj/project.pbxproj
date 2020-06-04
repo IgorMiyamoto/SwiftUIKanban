@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		05666B7924883EA100BB9C5E /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05666B7824883EA100BB9C5E /* AddView.swift */; };
 		05666B7E248874FE00BB9C5E /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05666B7D248874FE00BB9C5E /* CardViewModifier.swift */; };
+		05C75E212489748100BD1896 /* ShowDataCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C75E202489748100BD1896 /* ShowDataCardView.swift */; };
+		05C75E2724899C6B00BD1896 /* CarViewModifierOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */; };
 		05E3A32A2486E5E60083F84F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E3A3292486E5E60083F84F /* CardView.swift */; };
 		05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECD24833D0B0013BB1A /* AppDelegate.swift */; };
 		05F5BED024833D0B0013BB1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5BECF24833D0B0013BB1A /* SceneDelegate.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		05666B7824883EA100BB9C5E /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		05666B7D248874FE00BB9C5E /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
+		05C75E202489748100BD1896 /* ShowDataCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataCardView.swift; sourceTree = "<group>"; };
+		05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModifierOnTap.swift; sourceTree = "<group>"; };
 		05E3A3292486E5E60083F84F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		05F5BECA24833D0B0013BB1A /* Kanban.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanban.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F5BECD24833D0B0013BB1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				05666B7824883EA100BB9C5E /* AddView.swift */,
 				05666B7D248874FE00BB9C5E /* CardViewModifier.swift */,
 				B605024A24897512009F7CE3 /* BoardSelectView.swift */,
+				05C75E202489748100BD1896 /* ShowDataCardView.swift */,
+				05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,7 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C75E2724899C6B00BD1896 /* CarViewModifierOnTap.swift in Sources */,
 				B605023B2486E100009F7CE3 /* CoreDataStack.swift in Sources */,
+				05C75E212489748100BD1896 /* ShowDataCardView.swift in Sources */,
 				B605024024881AC8009F7CE3 /* Task+CoreDataClass.swift in Sources */,
 				B60502512489793A009F7CE3 /* BoardData+CoreDataProperties.swift in Sources */,
 				05F5BECE24833D0B0013BB1A /* AppDelegate.swift in Sources */,

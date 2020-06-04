@@ -15,6 +15,19 @@ enum EnumStatus : Int{
     case TODO = 0
     case DOING
     case DONE
+    
+    func stringValue() -> String
+    {
+        switch self {
+            case .TODO:
+                return "To Do"
+            case .DOING:
+                return "Doing"
+            case .DONE:
+                return "Done"
+        }
+    }
+    
 }
 
 struct CardModel {
