@@ -93,37 +93,7 @@ struct Column : View{
         return ScrollView {
             VStack {
                 ForEach(self.cards) { card in
-                    CardView(card: card)
-                    .contextMenu {
-                        VStack{
-                            Button(action: {}) {
-                                HStack {
-                                    Text("Open")
-                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                }
-                            }
-                            Button(action: {}) {
-                                HStack {
-                                    Text("Move")
-                                    Image(systemName: "arrow.right.arrow.left")
-                                }
-                            }
-                            Button(action: {self.showingAddView.toggle()}) {
-                                HStack {
-                                    Text("Edit")
-                                    Image(systemName: "pencil")
-                                }
-                            }.sheet(isPresented: self.$showingAddView, content: {
-                                AddView("Edit",card: card, action: self.cardViewModel.addOrUpdateCard)
-                            })
-                            Button(action: {self.cardViewModel.remove(card: card)}) {
-                                HStack {
-                                    Text("Remove")
-                                    Image(systemName: "trash")
-                                }
-                            }.foregroundColor(Color.red)
-                        }
-                    }
+                    CardView(card: card).createContextMenu(card: card, action: self.cardViewModel.addOrUpdateCard, destructiveAction: self.cardViewModel.remove)
                 }
             }
         }
