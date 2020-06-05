@@ -21,19 +21,19 @@ class CardViewModel : ObservableObject {
     //MARK: Get model stuff
     
     var cards : Array<CardModel.Card>{
-        cardModel.cards
+        cardModel.cards.filter{ $0.task?.isInside == board.boardData}
     }
     
     var cardsTODO : Array<CardModel.Card>{
-        return cardModel.cards.filter { $0.status == EnumStatus.TODO }
+        return cards.filter { $0.status == EnumStatus.TODO }
     }
     
     var cardsDOING : Array<CardModel.Card>{
-        cardModel.cards.filter { $0.status == EnumStatus.DOING }
+        cards.filter { $0.status == EnumStatus.DOING }
     }
     
     var cardsDONE : Array<CardModel.Card>{
-        cardModel.cards.filter { $0.status == EnumStatus.DONE }
+        return cards.filter { $0.status == EnumStatus.DONE }
     }
     
     var boardName : String{
