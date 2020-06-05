@@ -30,14 +30,14 @@ struct BoardSelectView: View {
                 
                 Section(header: Text("My Boards")){
                     ForEach (boardsViewModel.boards) { board in
-                        self.cell(for: board)
+                        NavigationLink(destination: BoardView.init(cardViewModel: CardViewModel(board: board)), label: {self.cell(for: board)})
                     }
                         .onDelete { index in
                             let deleteBoard = self.boardsViewModel.boards[index.first!]
                             self.boardsViewModel.deleteBoard(board: deleteBoard)
                             self.newBoard = ""
                         }
-                
+
                 }
             }
                 .navigationBarTitle("Boards")
@@ -46,11 +46,13 @@ struct BoardSelectView: View {
     
     func cell(for board: BoardsModel.Board) -> some View {
         
+        
         Text(board.name)
-            .onLongPressGesture {
-                self.updateBoard = board
-                self.updateName = board.name
-        }
+            .onLongPressGesture{
+                  self.updateBoard = board
+                  self.updateName = board.name
+            }
+        
     }
     
     func addRow() -> some View {
@@ -98,4 +100,5 @@ struct BoardSelectView: View {
             }
         }
     }
+    
 }

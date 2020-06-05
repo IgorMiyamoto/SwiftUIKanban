@@ -33,7 +33,7 @@ enum EnumStatus : Int{
 struct CardModel {
     var cards = [Card]()
     
-    var coreDataStack = CoreDataStack()
+    var coreDataStack = CoreDataStack.coreDataStack
     
     //MARK: Init
     
@@ -108,7 +108,7 @@ struct CardModel {
     
     //MARK: Add
     
-    mutating func add(card : Card){
+    mutating func add(card : Card, board : BoardsModel.Board){
         guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: coreDataStack.managedObjectContext) else {
             fatalError("Could not find entity description!")
         }
@@ -117,6 +117,7 @@ struct CardModel {
         task.title = card.title
         task.descrip = card.desc
         task.status = Int16(card.status.rawValue)
+        task.isInside = board.boardData
         
         SaveData()
     }

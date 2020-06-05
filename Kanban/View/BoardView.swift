@@ -19,7 +19,7 @@ struct BoardView: View {
         NavigationView{
             VStack {
                 HStack {
-                    Text("Sem a Testa")
+                    Text(cardViewModel.boardName)
                     Spacer()
                     Button(action:{ self.showingAddView.toggle()}) {
                         Image(systemName: "plus")
@@ -44,9 +44,12 @@ struct BoardView: View {
                         .padding()
                 }
             }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
         }
+            .onAppear{
+                self.cardViewModel.refresh()
+            }
        
     }
     
@@ -106,11 +109,3 @@ struct Column : View{
     let columnCornerRadius : CGFloat = 10.00
     
 }
-
-
-//
-//struct BoardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoardView(cardViewModel: CardViewModel())
-//    }
-//}

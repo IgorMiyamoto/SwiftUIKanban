@@ -11,6 +11,12 @@ import Foundation
 class CardViewModel : ObservableObject {
     @Published private var cardModel : CardModel = CardModel()
     
+    private var board : BoardsModel.Board
+    
+    init(board : BoardsModel.Board) {
+        self.board = board
+    }
+    
     
     //MARK: Get model stuff
     
@@ -19,7 +25,7 @@ class CardViewModel : ObservableObject {
     }
     
     var cardsTODO : Array<CardModel.Card>{
-        cardModel.cards.filter { $0.status == EnumStatus.TODO }
+        return cardModel.cards.filter { $0.status == EnumStatus.TODO }
     }
     
     var cardsDOING : Array<CardModel.Card>{
@@ -30,6 +36,10 @@ class CardViewModel : ObservableObject {
         cardModel.cards.filter { $0.status == EnumStatus.DONE }
     }
     
+    var boardName : String{
+        board.name
+    }
+    
     //MARK: Intents
     
     func remove(card : CardModel.Card){
@@ -38,11 +48,15 @@ class CardViewModel : ObservableObject {
     
     func addOrUpdateCard(card : CardModel.Card) {
         if card.task == nil{
-            cardModel.add(card: card)
+            cardModel.add(card: card, board: board)
         }
         else {
             cardModel.update(card: card)
         }
+    }
+    
+    func refresh(){
+        cardModel.Fetch()
     }
     
 //    func showCard(card: CardModel.Card)

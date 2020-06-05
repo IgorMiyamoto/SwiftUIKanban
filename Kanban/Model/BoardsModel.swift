@@ -13,7 +13,7 @@ struct BoardsModel {
     
     var boards = [Board]()
     
-    var coreDataStack = CoreDataStack()
+    var coreDataStack = CoreDataStack.coreDataStack
     
     init() {
         Fetch()

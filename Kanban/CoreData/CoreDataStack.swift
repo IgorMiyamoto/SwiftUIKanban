@@ -10,6 +10,10 @@ import Foundation
 import CoreData
 
 class CoreDataStack: NSObject {
+    static let coreDataStack = CoreDataStack()
+    
+    private override init () {}
+    
     static let moduleName = "Kanban"
     
     func saveMainContext() {
