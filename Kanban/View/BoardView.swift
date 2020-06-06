@@ -80,13 +80,20 @@ struct Column : View{
         }
     }
     
+    
     func body (for size : CGSize) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: columnCornerRadius).stroke()
             VStack {
                 Text(self.colTitle).padding()
                 Divider()
-                setOfCards()
+                if !cards.isEmpty {
+                    setOfCards()
+                }else{
+                    ScrollView{
+                        Spacer()
+                    }
+                }
             }
         }
             .frame(width:size.width, height: size.height)

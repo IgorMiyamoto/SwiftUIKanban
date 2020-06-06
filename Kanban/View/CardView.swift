@@ -23,7 +23,8 @@ struct CardView: View{
     }
     
     func body (for size : CGSize) -> some View {
-        Group{
+        print("Entrei na func body do card: \(card.title)")
+        return Group{
             RoundedRectangle(cornerRadius: cardCornerRadius)
                 .stroke()
             VStack {
