@@ -37,12 +37,12 @@ struct AddView: View {
                 .navigationBarTitle("\(task)", displayMode: .inline)
                 .navigationBarItems(leading:  Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
-                    }){Text("Cancel")} ,
+                }){Text("Cancel")} ,
                 trailing: Button(action: {
                     self.addOrEdit()
                     self.presentationMode.wrappedValue.dismiss()
                 }){Text("Save")} )
-        }
+         }.accentColor(.green)
    
     }
     

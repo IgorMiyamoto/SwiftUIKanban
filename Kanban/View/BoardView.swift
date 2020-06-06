@@ -16,20 +16,7 @@ struct BoardView: View {
     @State private var showingAddView = false
     
     var body: some View {
-        NavigationView{
             VStack {
-                HStack {
-                    Text(cardViewModel.boardName)
-                    Spacer()
-                    Button(action:{ self.showingAddView.toggle()}) {
-                        Image(systemName: "plus")
-                        
-                    }.sheet(isPresented: $showingAddView, content: {
-                        AddView("Add", action: self.cardViewModel.addOrUpdateCard)
-                        
-                    })
-                }.padding()
-                
                 ScrollView(.horizontal) {
                     GeometryReader { geometry in
                         HStack(spacing: self.horizontalSpacing){
@@ -44,9 +31,15 @@ struct BoardView: View {
                         .padding()
                 }
             }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-        }
+    
+            .navigationBarTitle(cardViewModel.boardName)
+            .navigationBarItems(trailing: Button(action:{ self.showingAddView.toggle()}) {
+                Image(systemName: "plus")
+            
+                                }.sheet(isPresented: $showingAddView, content: {
+                                    AddView("Add", action: self.cardViewModel.addOrUpdateCard)
+            
+                                })  )
             .onAppear{
                 self.cardViewModel.refresh()
             }

@@ -17,19 +17,20 @@ struct ShowDataCardView: View {
         
         NavigationView {
             
-            Form {
-                Section {
-                    Text(card.status.stringValue()).font(.body).bold()
-                    Text(card.desc).font(.body)
+                Form {
+                    Section {
+                        Text(card.status.stringValue()).font(.body).bold()
+                        Text(card.desc).font(.body)
+                        
+                    }.padding()
                     
-                }.padding()
-                
-            }
-                       
-        .navigationBarTitle(Text(card.title).bold())
-        .navigationBarItems(leading:  Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-        }){Text("Dismiss")})
-        }
+                }
+                           
+            .navigationBarTitle(Text(card.title).bold())
+            .navigationBarItems(leading:  Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }){Text("Dismiss")})
+            
+        }.accentColor(.green)
     }
 }

@@ -41,7 +41,7 @@ struct BoardSelectView: View {
                 }
             }
                 .navigationBarTitle("Boards")
-        }
+        }.accentColor(.green)
     }
     
     func cell(for board: BoardsModel.Board) -> some View {
