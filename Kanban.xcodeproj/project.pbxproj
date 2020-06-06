@@ -121,9 +121,9 @@
 				05E3A3292486E5E60083F84F /* CardView.swift */,
 				05666B7824883EA100BB9C5E /* AddView.swift */,
 				05666B7D248874FE00BB9C5E /* CardViewModifier.swift */,
-				B605024A24897512009F7CE3 /* BoardSelectView.swift */,
 				05C75E202489748100BD1896 /* ShowDataCardView.swift */,
 				05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */,
+				B605024A24897512009F7CE3 /* BoardSelectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

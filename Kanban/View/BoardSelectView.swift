@@ -15,6 +15,8 @@ struct BoardSelectView: View {
     @State private var newBoard = ""
     @State private var updateBoard : BoardsModel.Board?
     @State private var updateName = ""
+    @State private var alertIsShowing = false
+    @State private var deletingIndex : Int?
     
     var body: some View {
 
@@ -33,10 +35,20 @@ struct BoardSelectView: View {
                         NavigationLink(destination: BoardView.init(cardViewModel: CardViewModel(board: board)), label: {self.cell(for: board)})
                     }
                         .onDelete { index in
-                            let deleteBoard = self.boardsViewModel.boards[index.first!]
-                            self.boardsViewModel.deleteBoard(board: deleteBoard)
-                            self.newBoard = ""
+                            self.alertIsShowing = true
+                            self.deletingIndex = index.first
                         }
+                            .alert(isPresented: $alertIsShowing){
+                                Alert(title: Text("Are you sure you want to delete this?"),
+                                    message: Text("There is no undo"),
+                                    primaryButton: .cancel(),
+                                    secondaryButton: .destructive(Text("Delete")){
+                                        let deleteBoard = self.boardsViewModel.boards[self.deletingIndex!]
+                                        self.boardsViewModel.deleteBoard(board: deleteBoard)
+                                        self.newBoard = ""
+                                        self.deletingIndex = nil
+                                })
+                            }
 
                 }
             }
