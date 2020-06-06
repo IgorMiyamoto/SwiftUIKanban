@@ -18,6 +18,7 @@ struct AddView: View {
     @State private var txtTitle : String = ""
     @State private var txtContent : String = ""
     @State private var pkrStatus : Int = 0
+    @State private var showPopover = false
     
     let status = ["To Do","Doing","Done"]
     var body: some View {
@@ -32,16 +33,30 @@ struct AddView: View {
                         Text(self.status[$0])
                     }
                 }.pickerStyle(SegmentedPickerStyle())
-                }
+            }
             
-                .navigationBarTitle("\(task)", displayMode: .inline)
-                .navigationBarItems(leading:  Button(action: {
+            .navigationBarTitle("\(task)", displayMode: .inline)
+            
+            .navigationBarItems(
+                
+                leading:  Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
-                    }){Text("Cancel")} ,
+                    }){Text("Cancel")},
+                
                 trailing: Button(action: {
-                    self.addOrEdit()
-                    self.presentationMode.wrappedValue.dismiss()
-                }){Text("Save")} )
+                    if !(self.txtTitle == ""){
+                        self.addOrEdit()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    else {
+                        self.showPopover = true
+                    }
+                }){Text("Save")}
+                    .alert(isPresented: $showPopover){
+                        Alert(title: Text("Type some title"))
+                }
+        
+            )
         }
    
     }
@@ -73,10 +88,6 @@ struct AddView: View {
             function!(CardModel.Card(title: txtTitle, desc: txtContent, status: EnumStatus(rawValue: pkrStatus)!))
 
         }
-        
-        
     }
     
- 
-
 }
