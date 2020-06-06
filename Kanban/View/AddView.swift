@@ -40,7 +40,7 @@ struct AddView: View {
             .navigationBarItems(
                 
                 leading:  Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                     }){Text("Cancel")},
                 
                 trailing: Button(action: {
@@ -57,7 +57,7 @@ struct AddView: View {
                 }
         
             )
-        }
+        }.accentColor(.green)
    
     }
     

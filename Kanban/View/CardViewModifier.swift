@@ -38,11 +38,12 @@ struct ContextMenu : ViewModifier {
                              Image(systemName: "arrow.right.arrow.left")
                          }
                     }.actionSheet(isPresented: self.$showingMoveOptions, content:{
-                        ActionSheet(title: Text("Where to?"),message: nil ,buttons: [ActionSheet.Button.default(Text("To Do"), action:{self.attCard(card: self.card,status: EnumStatus.TODO.rawValue)}),
-                        ActionSheet.Button.default(Text("Doing"), action: {self.attCard(card: self.card,status: EnumStatus.DOING.rawValue)}),
-                        ActionSheet.Button.default(Text("Done"), action: {self.attCard(card: self.card,status: EnumStatus.DONE.rawValue)})])
+                        ActionSheet(title: Text("Where to?"),message: nil ,buttons:
+                            [ActionSheet.Button.default(Text("To Do"), action:{self.attCard(card: self.card,status: EnumStatus.TODO.rawValue)}),
+                             ActionSheet.Button.default(Text("Doing"), action: {self.attCard(card: self.card,status: EnumStatus.DOING.rawValue)}),
+                             ActionSheet.Button.default(Text("Done"), action: {self.attCard(card: self.card,status: EnumStatus.DONE.rawValue)}),
+                             ActionSheet.Button.cancel(Text("Cancel").bold())])
                     })
-                    
                     
                      Button(action: {self.showingAddView.toggle()}) {
                          HStack {
