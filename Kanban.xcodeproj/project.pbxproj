@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05666B7924883EA100BB9C5E /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05666B7824883EA100BB9C5E /* AddView.swift */; };
 		05666B7E248874FE00BB9C5E /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05666B7D248874FE00BB9C5E /* CardViewModifier.swift */; };
+		0586D685248DB0700043122A /* ColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D684248DB0700043122A /* ColumnView.swift */; };
 		05C75E212489748100BD1896 /* ShowDataCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C75E202489748100BD1896 /* ShowDataCardView.swift */; };
 		05C75E2724899C6B00BD1896 /* CarViewModifierOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */; };
 		05E3A32A2486E5E60083F84F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E3A3292486E5E60083F84F /* CardView.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		05666B7824883EA100BB9C5E /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		05666B7D248874FE00BB9C5E /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
+		0586D684248DB0700043122A /* ColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnView.swift; sourceTree = "<group>"; };
 		05C75E202489748100BD1896 /* ShowDataCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataCardView.swift; sourceTree = "<group>"; };
 		05C75E2624899C6B00BD1896 /* CarViewModifierOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModifierOnTap.swift; sourceTree = "<group>"; };
 		05E3A3292486E5E60083F84F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				05F5BED424833D0B0013BB1A /* BoardView.swift */,
 				05E3A3292486E5E60083F84F /* CardView.swift */,
+				0586D684248DB0700043122A /* ColumnView.swift */,
 				05666B7824883EA100BB9C5E /* AddView.swift */,
 				05666B7D248874FE00BB9C5E /* CardViewModifier.swift */,
 				05C75E202489748100BD1896 /* ShowDataCardView.swift */,
@@ -254,6 +257,7 @@
 				B605024B24897512009F7CE3 /* BoardSelectView.swift in Sources */,
 				05666B7924883EA100BB9C5E /* AddView.swift in Sources */,
 				B60502502489793A009F7CE3 /* BoardData+CoreDataClass.swift in Sources */,
+				0586D685248DB0700043122A /* ColumnView.swift in Sources */,
 				05E3A32A2486E5E60083F84F /* CardView.swift in Sources */,
 				B605024424883120009F7CE3 /* Array+FirstIndexOf.swift in Sources */,
 				05F5BEE524834DC70013BB1A /* CardModel.swift in Sources */,
