@@ -58,6 +58,7 @@ struct AddView: View {
         
             )
         }.accentColor(.green)
+        
    
     }
     

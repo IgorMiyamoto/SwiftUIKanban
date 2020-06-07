@@ -13,7 +13,9 @@ import SwiftUI
 struct BoardView: View {
     @ObservedObject var cardViewModel : CardViewModel
     
-    @State private var showingAddView = false
+    @State private var showingAddViewBoard = false
+    
+    @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
     
     var body: some View {
             VStack {
@@ -33,17 +35,20 @@ struct BoardView: View {
             }
     
             .navigationBarTitle(cardViewModel.boardName)
-            .navigationBarItems(trailing: Button(action:{ self.showingAddView.toggle()}) {
-                Image(systemName: "plus")
-            
-                                }.sheet(isPresented: $showingAddView, content: {
-                                    AddView("Add", action: self.cardViewModel.addOrUpdateCard)
-            
-                                })  )
+            .navigationBarItems(trailing: Button(action:{
+                    self.showingAddViewBoard.toggle()
+                
+            }) {
+                    Image(systemName: "plus")
+                }.sheet(isPresented: $showingAddViewBoard, content: {
+                    AddView("Add", action: self.cardViewModel.addOrUpdateCard)
+                    })
+                )
             .onAppear{
+                self.showingAddViewBoard = false
                 self.cardViewModel.refresh()
             }
-       
+    
     }
     
     //MARK: 🔢 Magical Numbers

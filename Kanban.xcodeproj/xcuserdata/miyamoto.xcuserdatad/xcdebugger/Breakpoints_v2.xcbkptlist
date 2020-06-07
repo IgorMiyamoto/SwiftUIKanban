@@ -14,25 +14,9 @@
             filePath = "Kanban/View/AddView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "addOrEdit()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "55CAE2D0-BA14-49A9-BB0A-7E027B4B9793"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Kanban/View/AddView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "init(_:card:action:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "init(_:action:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
